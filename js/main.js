@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       /* Клик вне элемента */
       document.addEventListener('click', (e) => {
-        if (!e.target.closest('.accordion__head')) {
+        if (!e.target.closest('.accordion-wrapper__items')) {
           control[i].classList.remove('open');
           control[i].setAttribute('aria-expended', false);
           content[i].style.maxHeight = null;
@@ -47,4 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
   accordion(accordionHead, accordionBody);
+
+  /* Filter */
 });
