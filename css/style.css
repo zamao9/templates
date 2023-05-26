@@ -547,8 +547,13 @@ a {
     text-transform: uppercase;
 }
 
+.subtitle {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
 .border {
-    padding: 5px 10px;
+    padding: 8px 10px;
     border: 0.5px solid rgba(61, 61, 61, 0.3);
 }
 
@@ -556,19 +561,34 @@ a {
     background-color: #cccccc;
 }
 
-.accordion .accordion-wrapper__list {
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fud {
+    padding: 300px 0;
+    background-color: #ccc;
+}
+
+.section .accordion-wrapper__list {
     display: grid;
     grid-template-columns: repeat(1, minmax(auto, 400px));
     justify-content: center;
     gap: 10px;
 }
 
-.accordion .accordion-wrapper .accordion__head {
+.section .accordion-wrapper .accordion__head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 6px 10px;
+    padding: 8px 10px;
     -moz-appearance: none;
     appearance: none;
     -webkit-appearance: none;
@@ -578,27 +598,27 @@ a {
 }
 
 @media (any-hover: hover) {
-    .accordion .accordion-wrapper .accordion__head:hover {
+    .section .accordion-wrapper .accordion__head:hover {
         background-color: #cccccc;
     }
 }
 
-.accordion .accordion-wrapper .accordion__head.open {
+.section .accordion-wrapper .accordion__head.open {
     background: #cccccc;
 }
 
-.accordion .accordion-wrapper .accordion__head.open .accordion__arrow {
+.section .accordion-wrapper .accordion__head.open .accordion__arrow {
     transform: rotate(45deg);
 }
 
-.accordion .accordion-wrapper .accordion__arrow {
+.section .accordion-wrapper .accordion__arrow {
     position: relative;
     width: 15px;
     height: 15px;
     transition: 0.2s ease;
 }
 
-.accordion .accordion-wrapper .accordion__arrow::before, .accordion .accordion-wrapper .accordion__arrow::after {
+.section .accordion-wrapper .accordion__arrow::before, .section .accordion-wrapper .accordion__arrow::after {
     position: absolute;
     content: "";
     top: 50%;
@@ -608,15 +628,15 @@ a {
     background-color: #3d3d3d;
 }
 
-.accordion .accordion-wrapper .accordion__arrow::before {
+.section .accordion-wrapper .accordion__arrow::before {
     transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.accordion .accordion-wrapper .accordion__arrow::after {
+.section .accordion-wrapper .accordion__arrow::after {
     transform: translate(-50%, -50%);
 }
 
-.accordion .accordion-wrapper .accordion__title {
+.section .accordion-wrapper .accordion__title {
     width: 100%;
     max-width: 350px;
     font-family: "Quicksand", sans-serif;
@@ -625,7 +645,7 @@ a {
     color: #3d3d3d;
 }
 
-.accordion .accordion-wrapper .accordion__list {
+.section .accordion-wrapper .accordion__list {
     max-height: 0;
     overflow: hidden;
     box-sizing: content-box;
@@ -638,45 +658,45 @@ a {
     transition: 0.2s ease;
 }
 
-.filter .filter-nav {
+.section .filter-nav {
     margin-bottom: 50px;
 }
 
-.filter .filter-nav__list {
+.section .filter-nav__list {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.filter .filter-nav__items {
+.section .filter-nav__items {
     transition: 0.2s ease;
 }
 
-.filter .filter-nav__items:not(:last-child) {
+.section .filter-nav__items:not(:last-child) {
     margin-bottom: 20px;
 }
 
 @media (any-hover: hover) {
-    .filter .filter-nav__items:hover {
+    .section .filter-nav__items:hover {
         background-color: rgba(61, 61, 61, 0.3);
     }
 }
 
-.filter .filter-content__list {
+.section .filter-content__list {
     display: grid;
     grid-template-columns: repeat(1, minmax(auto, 300px));
     gap: 20px;
     justify-content: center;
 }
 
-.filter .filter-content__img {
+.section .filter-content__img {
     position: relative;
     width: 100%;
     height: 230px;
 }
 
-.filter .filter-content__img::before {
+.section .filter-content__img::before {
     position: absolute;
     content: "";
     top: 0;
@@ -688,7 +708,7 @@ a {
     transition: 0.2s ease;
 }
 
-.filter .filter-content__img img {
+.section .filter-content__img img {
     display: block;
     width: 100%;
     height: 100%;
@@ -697,12 +717,12 @@ a {
 }
 
 @media (any-hover: hover) {
-    .filter .filter-content__items:hover .filter-content__img::before {
+    .section .filter-content__items:hover .filter-content__img::before {
         opacity: 1;
     }
 }
 
-.filter .filter-content__link {
+.section .filter-content__link {
     padding: 10px;
     text-align: center;
     text-transform: uppercase;
@@ -735,4 +755,112 @@ a {
     .filter .filter-content__list {
         grid-template-columns: repeat(4, minmax(auto, 300px));
     }
+}
+
+.section .wrapper {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.section .wrapper .select {
+    position: relative;
+}
+
+.section .wrapper .select:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.section .wrapper .select__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 10px;
+    border: 0.5px solid rgba(61, 61, 61, 0.3);
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.section .wrapper .select__head:hover {
+    background-color: #cccccc;
+}
+
+.section .wrapper .select__head.active {
+    background-color: #cccccc;
+}
+
+.section .wrapper .select__current {
+    max-width: 250px;
+}
+
+.section .wrapper .select__arrow {
+    position: relative;
+    width: 15px;
+    height: 15px;
+}
+
+.section .wrapper .select__arrow::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) rotate(45deg);
+    width: 60%;
+    height: 1px;
+    background-color: #3d3d3d;
+    transition: 0.2s ease;
+}
+
+.section .wrapper .select__arrow::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-45deg);
+    width: 60%;
+    height: 1px;
+    background-color: #3d3d3d;
+    transition: 0.2s ease;
+}
+
+.section .wrapper .select__arrow.active::before, .section .wrapper .select__arrow.active::after {
+    width: 100%;
+}
+
+.section .wrapper .select__list {
+    position: absolute;
+    z-index: 1;
+    transform: scaleY(0);
+    transform-origin: top;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0.5px solid rgba(61, 61, 61, 0.3);
+    border-top: 0;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: 0.2s ease;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.section .wrapper .select__list.active {
+    transform: scaleY(1);
+    pointer-events: all;
+    visibility: visible;
+}
+
+.section .wrapper .select__items span {
+    display: block;
+    padding: 8px 10px;
+    transition: 0.2s ease;
+}
+
+.section .wrapper .select__items span:hover {
+    background-color: #cccccc;
+}
+
+.section .wrapper .select__input {
+    display: none;
 }
